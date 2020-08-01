@@ -1,5 +1,5 @@
 # Use grpc web with react (simple example)
-## Write a .proto file to define the contract for the RPC
+## Write a .proto file to define the contract for the RPC (This file is already present!)
 ```
 $ cat ./protos/helloworld.proto
 syntax = "proto3";
@@ -30,6 +30,8 @@ message HelloReply {
 ```
 
 ## Generate js files from this proto
+
+- These files have already been generated for this tutorial, you can skip this step. This steps tells you how to generate js files.
 - Make sure the protoc compiler and and grpc-web binary is known to the systems (append the directories containing these binaries to $PATH)
 - You can get these compiler binaries from their release repos:
     
