@@ -38,6 +38,7 @@ message HelloReply {
 
 (I have put the binaries in the same location!)
 ```
+$ export PATH=/Users/sushrut/Downloads/protoc-3.12.4-osx-x86_64/bin:$PATH
 $ which protoc
 /Users/sushrut/Downloads/protoc-3.12.4-osx-x86_64/bin/protoc
 $ which protoc-gen-grpc-web
@@ -61,8 +62,6 @@ $ grpc-server/start_server.sh
 Creating a virtualenv using python3
 Created virtualenv
 Installing the required libraries
-WARNING: You are using pip version 19.2.3, however version 20.2 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.
 Installed binaries
 Staring the backend server
 Python backend server started, listening on port 9090!
