@@ -55,7 +55,7 @@ $ ./proto_compiler.sh protos/ protos/helloworld.proto
 
 - The compiler wrapper script (protoc_compiler.sh) takes care of putting these files in required location.
 
-## Create a backend server
+## Create a gRPC server
 
 - The backend server is written in python and is not in scope of this tutorial. You just have to launch the server using the script as below (make sure you have python3 installed.)
 
