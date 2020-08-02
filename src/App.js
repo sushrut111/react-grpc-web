@@ -5,11 +5,23 @@ import { getMessage } from './api/Message';
 
 function App() {
   const [message, setMessage] = useState('Hello world!');
+  const [name, setName] = useState('');
+  const updateName = (e) => {
+    setName(e.target.value);
+  }
   useEffect(()=>{
-    getMessage("sushrut", setMessage);
-  },[])
+    let n = name;
+    if (n == ""){
+      n = 'world!';
+    }
+    getMessage(n, setMessage);
+  },[name])
   return (
-    <div>{message}</div>
+    <div>
+      <input onChange={updateName} value={name}/><br/>
+      <button>Greet yourself!</button><br/>
+      <center><h3>{message}</h3></center>
+    </div>
   );
 }
 
