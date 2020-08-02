@@ -9,17 +9,16 @@ function App() {
   const updateName = (e) => {
     setName(e.target.value);
   }
-  useEffect(()=>{
-    let n = name;
-    if (n == ""){
-      n = 'world!';
+  const sendRequest = () => {
+    if(name==''){
+      name = "World!";
     }
-    getMessage(n, setMessage);
-  },[name])
+    getMessage(name, setMessage);
+  }
   return (
     <div>
-      <input onChange={updateName} value={name}/><br/>
-      <button>Greet yourself!</button><br/>
+      <center><input onChange={updateName} value={name}/></center><br/>
+      <center><button onClick={sendRequest}>Greet yourself!</button></center><br/>
       <center><h3>{message}</h3></center>
     </div>
   );
