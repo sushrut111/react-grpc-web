@@ -59,8 +59,8 @@ $ ./proto_compiler.sh protos/ protos/helloworld.proto
 
 - The backend server is written in python and is not in scope of this tutorial. You just have to launch the server using the script as below (make sure you have python3 installed.)
 
-```
-$ grpc-server/start_server.sh 
+```shell
+$ ./grpc-server/start_python_server.sh 
 Creating a virtualenv using python3
 Created virtualenv
 Installing the required libraries
@@ -72,7 +72,26 @@ Python backend server started, listening on port 9090!
 ## Create a backend proxy server as a delegator between the gRPC server and gRPC client
 
 - gRPC requires a proxy between a server and client.
-- For this tutorial, download the binary of the grpcwebproxy from [here](https://github.com/improbable-eng/grpc-web/releases)
+- You can start this proxy as 
+```shell
+$ ./grpc-server/start_proxy.sh 
+\nPreparing to download the grpcwebproxy binary to proxy_path/proxy.zip\n
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   659  100   659    0     0    673      0 --:--:-- --:--:-- --:--:--   673
+100 7379k  100 7379k    0     0   534k      0  0:00:13  0:00:13 --:--:--  745k
+\nExctracting the downloaded binary to proxy_path\n
+Archive:  proxy_path/proxy.zip
+  inflating: proxy_path/dist/grpcwebproxy-v0.13.0-osx-x86_64  
+INFO[0000] parsed scheme: ""                             system=system
+INFO[0000] scheme "" not registered, fallback to default scheme  system=system
+INFO[0000] ccResolverWrapper: sending update to cc: {[{localhost:9090 0  <nil>}] }  system=system
+INFO[0000] ClientConn switching balancer to "pick_first"  system=system
+INFO[0000] pickfirstBalancer: HandleSubConnStateChange: 0xc0001867b0, CONNECTING  system=system
+INFO[0000] listening for http on: [::]:8080             
+```
+- If the script above works for you, you should be good with this section and skip next bullets.
+- While standard architectures will run the above script, but if it gives an error for your os, download the binary of the grpcwebproxy from [here](https://github.com/improbable-eng/grpc-web/releases)
 - Once you have the binary, unzip it and start the proxy server:
 ```
 $ ./grpcwebproxy  --backend_addr=localhost:9090 --backend_tls_noverify --run_tls_server=false --allow_all_origins
