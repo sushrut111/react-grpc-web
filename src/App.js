@@ -6,7 +6,8 @@ function App() {
   const [message, setMessage] = useState("Hello world!");
   const [name, setName] = useState("");
 
-  const sendRequest = () => {
+  const sendRequest = (e) => {
+    e.preventDefault();
     if (name === "") {
       setName("World!");
     }
@@ -16,7 +17,7 @@ function App() {
     <div class="login-box">
       <h2>React GRPC Web</h2>
       <h2>{message}</h2>
-      <form>
+      <form onSubmit={(e) => sendRequest(e)}>
         <div class="user-box">
           <input
             type="text"
@@ -25,7 +26,7 @@ function App() {
           />
           <label>Your input</label>
         </div>
-        <button onClick={sendRequest}>
+        <button>
           <span></span>
           <span></span>
           <span></span>
