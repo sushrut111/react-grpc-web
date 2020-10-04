@@ -1,6 +1,6 @@
 import {backendUrl} from './Config';
 import { GreeterClient } from "../grpc/helloworld_grpc_web_pb";
-import { HelloRequest, HelloReply } from "../grpc/helloworld_pb";
+import { HelloRequest } from "../grpc/helloworld_pb";
 
 const client = new GreeterClient(backendUrl);
 
